@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 const app = express();
 const port = process.env.PORT || 3000;
+console.log("API key loaded:", !!process.env.OPENAI_API_KEY);
+console.log("API key prefix:", process.env.OPENAI_API_KEY?.slice(0, 7));
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.json({ limit: '15mb' }));
